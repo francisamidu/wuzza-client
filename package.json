@@ -1,0 +1,39 @@
+{
+	"name": "Wuzza",
+	"main": "index.js",
+	"author": "Francis Amidu",
+	"license": "ISC",
+	"dependencies": {
+		"@apollo/client": "*",
+		"@reduxjs/toolkit": "*",
+		"@types/node": "*",
+		"@types/react": "*",
+		"axios": "*",
+		"date-fns": "*",
+		"next": "*",
+		"node-sass": "*",
+		"react": "*",
+		"react-calendar": "*",
+		"react-dom": "^*",
+		"react-icons": "*",
+		"react-redux": "*",
+		"react-scrollspy": "*",
+		"redux-persist": "*",
+		"ree-validate": "*",
+		"sass": "^1.45.1",
+		"tailwindcss": "*",
+		"timeago": "",
+		"tsconfig-paths-webpack-plugin": "*",
+		"typescript": "*",
+		"uuid": "*"
+	},
+	"devDependencies": {
+		"autoprefixer": "*",
+		"postcss": "*"
+	},
+	"scripts": {
+		"serve": "next",
+		"build": "next build",
+		"start": "next start"
+	}
+}
