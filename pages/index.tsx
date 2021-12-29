@@ -1,10 +1,19 @@
-import Head from "next/head";
 import React from "react";
-import Header from "../components/Header";
+import Head from "next/head";
+import {
+  Features,
+  Footer,
+  Header,
+  Intro,
+  MoreInfo,
+  Partners,
+  Pricing,
+  Try,
+} from "../components";
 
 const Index = () => {
   return (
-    <main>
+    <main className="overflow-hidden">
       <Head>
         <title>Wuzza - Productivity made easy</title>
         <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
@@ -16,6 +25,13 @@ const Index = () => {
         <meta name="author" content="Francis Amidu" />
       </Head>
       <Header />
+      <Partners />
+      <Intro />
+      <Features />
+      <MoreInfo />
+      <Pricing />
+      <Try />
+      <Footer />
     </main>
   );
 };
