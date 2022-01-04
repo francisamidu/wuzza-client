@@ -28,7 +28,7 @@ const SidebarLink = (props: SidebarLinkProps) => {
     });
     if (name === "logout") {
     }
-    // router.push(path);
+    router.push(path);
   };
   return (
     <Link href={path}>

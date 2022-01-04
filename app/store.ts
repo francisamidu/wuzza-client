@@ -17,7 +17,7 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { tasksSlice } from "../reducers";
-import { auth } from "../services";
+import { auth, tasks } from "../services";
 
 const persistConfig = {
   key: "root",
@@ -28,6 +28,7 @@ const persistConfig = {
 const rootReducer = combineReducers({
   [tasksSlice.name]: tasksSlice.reducer,
   [auth.reducerPath]: auth.reducer,
+  [tasks.reducerPath]: tasks.reducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

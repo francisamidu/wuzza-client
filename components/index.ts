@@ -3,6 +3,7 @@ import DashboardHeader from "./DashboardHeader";
 import DashboardLayout from "./DashboardLayout";
 import DashboardSidebar from "./DashboardSidebar";
 import DateRange from "./DateRange";
+import Error from "./Toast";
 import FeatureCard from "./FeatureCard";
 import Features from "./Features";
 import Footer from "./Footer";
@@ -15,6 +16,7 @@ import Partners from "./Partners";
 import Pricing from "./Pricing";
 import PricingCard from "./PricingCard";
 import SidebarLink from "./SidebarLink";
+import SocialButton from "./SocialButton";
 import Task from "./Task";
 import TaskTab from "./TaskTab";
 import TaskTabs from "./TaskTabs";
@@ -28,6 +30,7 @@ export {
   DateRange,
   FeatureCard,
   Features,
+  SocialButton,
   Footer,
   Header,
   HomeLayout,
@@ -42,4 +45,5 @@ export {
   TaskTab,
   TaskTabs,
   Try,
+  Error,
 };

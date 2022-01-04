@@ -8,6 +8,7 @@
   --color-green: rgb(2, 68, 2);
   --color-blue: rgb(52, 111, 188);
   --color-dark-blue: rgb(7, 2, 26);
+  --bg-dark-blue: rgb(1, 0, 5);
   --color-blue-var: rgb(79, 190, 254);
   --color-dark-green: rgb(0, 19, 0);
 }
@@ -26,7 +27,7 @@
   }
 }
 .btn-blue-var {
-  background-color: rgb(202, 216, 254);
+  background-color: rgb(202, 216, 254) !important;
   color: var(--color-blue);
   &:hover {
     background-color: var(--color-blue) !important;
@@ -101,7 +102,6 @@
 .app-bar {
   height: 70px;
   top: 0;
-  z-index: 10;
 }
 .sidebar {
   height: 100vh;
@@ -187,4 +187,53 @@
 }
 .task-tab.active-tab {
   font-weight: bold;
+}
+.overlay {
+  background-image: url("/woman-with-laptop.jpg");
+  background-size: cover;
+}
+.facebook {
+  background-color: rgb(35, 35, 161);
+  cursor: pointer;
+}
+
+.google {
+  background-color: rgb(177, 25, 25);
+  cursor: pointer;
+}
+
+.separator {
+  text-align: center;
+  margin: 1em 0;
+}
+.separator span {
+  display: block;
+  position: relative;
+  width: 50%;
+  margin: 0 auto;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+.separator span::before {
+  background-color: rgba(0, 0, 0, 0.1);
+  width: 30%;
+  height: 1.5px;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  content: "";
+  transform: translateY(-50%);
+}
+.separator span::after {
+  background-color: rgba(0, 0, 0, 0.1);
+  width: 30%;
+  height: 1.5px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  content: "";
+  transform: translateY(-50%);
+}
+input:focus {
+  outline: none;
 }

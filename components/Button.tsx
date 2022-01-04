@@ -2,13 +2,21 @@ import React, { MouseEventHandler, ReactElement } from "react";
 
 type ButtonProps = {
   text: string;
+  type?: "button" | "submit";
   onClick?: MouseEventHandler<HTMLButtonElement>;
   left?: boolean;
   icon?: Partial<ReactElement>;
   className?: string;
 };
 
-const Button = ({ text, onClick, icon, className, left }: ButtonProps) => {
+const Button = ({
+  text,
+  onClick,
+  icon,
+  className,
+  left,
+  type = "button",
+}: ButtonProps) => {
   const handleClick = typeof onClick === "function" ? onClick : () => {};
   const getClasses = () => {
     if (className) {
@@ -19,14 +27,14 @@ const Button = ({ text, onClick, icon, className, left }: ButtonProps) => {
   const renderButton = () => {
     if (left) {
       return (
-        <button className={getClasses()} onClick={handleClick}>
+        <button className={getClasses()} onClick={handleClick} type={type}>
           {icon}
           <span className={icon ? "ml-4" : ""}>{text}</span>
         </button>
       );
     }
     return (
-      <button className={getClasses()} onClick={handleClick}>
+      <button className={getClasses()} onClick={handleClick} type={type}>
         <span className={icon ? "mr-4" : ""}>{text}</span>
         {icon}
       </button>

@@ -16,7 +16,7 @@ const DateRange = (props: DateRangeProps) => {
         className="bg-white rounded-3xl w-full cursor-pointer uppercase"
         name="date"
       >
-        <option value="" className="font-bold">
+        <option value="" className="font-bold text-sm">
           Choose range
         </option>
         {dates.map((date: any) => (

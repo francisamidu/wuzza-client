@@ -20,7 +20,7 @@ const Header = () => {
         </Link>
         <div className="flex flex-row justify-between h-10 items-center">
           <Link href="/login">
-            <a className="font-bold color-blue-var hover:color-blue-custom transition-all duration-300 mr-4">
+            <a className="font-bold color-blue-var hover:color-blue transition-all duration-300 mr-4">
               Login
             </a>
           </Link>
@@ -29,7 +29,7 @@ const Header = () => {
               <Button
                 text="Create a free account"
                 className="mt-0 font-bold btn-blue-var transition-all duration-300 py-2 h-full rounded-m"
-                icon={<AiOutlineArrowRight className="colo-blue-custom" />}
+                icon={<AiOutlineArrowRight className="colo-blue" />}
               />
             </a>
           </Link>
@@ -50,8 +50,8 @@ const Header = () => {
             <Button
               left={true}
               text="Watch Video"
-              className="bg-transparent color-blue-custom hover:bg-blue-100"
-              icon={<AiFillYoutube className="color-blue-custom text-2xl" />}
+              className="bg-transparent color-blue hover:bg-blue-100"
+              icon={<AiFillYoutube className="color-blue text-2xl" />}
             />
           </div>
         </div>

@@ -1,6 +1,7 @@
 import { NextComponentType } from "next";
 import Head from "next/head";
 import React, { PropsWithChildren } from "react";
+import { useTheme } from "../contexts";
 import DashboardHeader from "./DashboardHeader";
 import DashboardSidebar from "./DashboardSidebar";
 
@@ -8,6 +9,7 @@ const DashboardLayout = (
   props: Partial<PropsWithChildren<NextComponentType>>
 ) => {
   const { children } = props;
+  const { theme } = useTheme();
   return (
     <main>
       <Head>

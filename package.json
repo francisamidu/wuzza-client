@@ -10,7 +10,9 @@
 		"@types/node": "*",
 		"@types/react": "*",
 		"axios": "*",
+		"classnames": "^2.3.1",
 		"date-fns": "*",
+		"formik": "^2.2.9",
 		"next": "*",
 		"node-sass": "*",
 		"react": "*",
@@ -27,7 +29,8 @@
 		"timeago": "",
 		"tsconfig-paths-webpack-plugin": "*",
 		"typescript": "*",
-		"uuid": "*"
+		"uuid": "*",
+		"yup": "^0.32.11"
 	},
 	"devDependencies": {
 		"@types/node-sass": "4.11.2",

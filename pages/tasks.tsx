@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { NextComponentType } from "next";
+import router from "next/router";
 
 import { Button, DashboardLayout, Task, TaskTabs } from "../components";
-import { IoAddOutline, IoAdd } from "react-icons/io5";
+import { IoAdd } from "react-icons/io5";
 
 import { useAppSelector } from "../hooks";
 import { Tab, Task as ITask } from "../types";
@@ -63,13 +64,20 @@ const Tasks = () => {
         setLocalTasks(tasks);
     }
   };
+
   useEffect(() => {
     const tab = tabs.find((tab) => tab.active);
     setCurrentTab(tab.name);
   }, [tabs]);
+
   useEffect(() => {
     setTasks();
   }, [currentTab]);
+
+  const redirectToCreateTaskPage = () => {
+    router.push("/create-task");
+  };
+
   return (
     <main className="py-4 px-4 bg-blue-50 col-start-1 col-end-3">
       <div className="p-2">
@@ -85,6 +93,7 @@ const Tasks = () => {
             text="Create Task"
             left={true}
             icon={<IoAdd className="text-white text-lg" />}
+            onClick={redirectToCreateTaskPage}
             className="btn-blue rounded-xl"
           />
         </div>

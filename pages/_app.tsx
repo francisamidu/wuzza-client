@@ -8,6 +8,7 @@ import { persistor, store } from "../app/store";
 
 import "../styles/index.scss";
 import "../node_modules/tailwindcss/tailwind.css";
+import { AppContextProvider, ThemeContextProvider } from "../contexts";
 
 type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode;
@@ -23,7 +24,11 @@ const App = ({ Component, PageProps }: AppPropsWithLayout) => {
   return (
     <PersistGate loading={null} persistor={persistor}>
       <Provider store={store}>
-        {getLayout(<Component {...PageProps} />)}
+        <AppContextProvider>
+          <ThemeContextProvider>
+            {getLayout(<Component {...PageProps} />)}
+          </ThemeContextProvider>
+        </AppContextProvider>
       </Provider>
     </PersistGate>
   );
