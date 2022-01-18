@@ -27,7 +27,7 @@ const Header = () => {
           <Link href="/login">
             <a className="h-full">
               <Button
-                text="Create a free account"
+                text="Create an account"
                 className="mt-0 font-bold btn-blue-var transition-all duration-300 py-2 h-full rounded-m"
                 icon={<AiOutlineArrowRight className="colo-blue" />}
               />

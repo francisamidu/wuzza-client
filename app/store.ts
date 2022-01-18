@@ -18,6 +18,7 @@ import {
 import storage from "redux-persist/lib/storage";
 import { tasksSlice } from "../reducers";
 import { auth, tasks } from "../services";
+import { authMiddleware } from "../services/auth.api";
 
 const persistConfig = {
   key: "root",
@@ -35,12 +36,7 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 export const store: Store = configureStore({
   reducer: persistedReducer,
   devTools: process.env.NODE_ENV === "development",
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({
-      serializableCheck: {
-        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-      },
-    }),
+  middleware: () => [authMiddleware],
 });
 export const persistedStore = persistStore(store);
 

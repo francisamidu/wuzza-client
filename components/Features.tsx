@@ -40,9 +40,9 @@ const Features = () => {
     <HomeLayout>
       <div className="flex flex-col md:block color-dark-blue md:w-1/2 w-11/12 md:text-left text-center items-center ml-4">
         <h1 className="text-3xl sm:text-4xl font-bold mb-8 leading-11">
-          Productivity{" "}
-          <span className="color-blue-custom italic">solution</span> designed
-          for reality <span className="color-blue-custom italic">life</span> use
+          Productivity <span className="color-blue italic">solution</span>{" "}
+          designed for reality <span className="color-blue italic">life</span>{" "}
+          use
         </h1>
         <p className="leading-7 mb-8">
           Turn your ideas into reality with{" "}

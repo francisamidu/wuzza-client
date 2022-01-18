@@ -5,7 +5,7 @@ import Image from "next/image";
 const Intro = () => {
   return (
     <section className="flex md:flex-row flex-col justify-between items-center py-4 md:max-w-screen-lg m-auto">
-      <div className="w-1/2 relative">
+      <div className="w-3/5 relative">
         <Image
           src="/business-idea-concept-with-people_52683-28609.jpg"
           alt="Work from anywhere"
