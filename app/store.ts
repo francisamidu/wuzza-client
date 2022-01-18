@@ -36,7 +36,13 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 export const store: Store = configureStore({
   reducer: persistedReducer,
   devTools: process.env.NODE_ENV === "development",
-  middleware: () => [authMiddleware],
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE],
+      },
+      thunk: true,
+    }),
 });
 export const persistedStore = persistStore(store);
 
