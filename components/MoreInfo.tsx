@@ -20,8 +20,8 @@ const MoreInfo = () => {
         <h1 className="text-4xl text-center sm:text-left font-bold mb-8 leading-11">
           Say goodbye to boring productivity{" "}
           <span className="text-blue-700 italic">solutions</span> and say
-          <span className="text-blue-700 italic">hello</span> to simple to{" "}
-          <span className="font-bold">Wuzza</span>
+          <span className="text-blue-700 italic">hello</span>
+          <span className="font-bold"> to Wuzza</span>
         </h1>
         <p className="leading-7 mb-8">
           With <span className="font-bold">Wuzza</span> we've made it very easy

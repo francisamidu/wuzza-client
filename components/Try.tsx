@@ -8,7 +8,7 @@ const Try = () => {
       <h1 className="text-3xl font-bold">Get Started Today!</h1>
       <p className="mt-8 sm:mt-8 text-gray-700 sm:w-1/2 w-9/12 mx-auto">
         Getting started with Wuzza is unbelievably easy. We believe once you
-        exprience truly stree-free and simple productivity you won't go back
+        experience truly stree-free and simple productivity you won't go back
       </p>
       <Button
         text="Try it for free"

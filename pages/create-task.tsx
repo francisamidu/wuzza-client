@@ -10,6 +10,7 @@ import { NextComponentType } from "next";
 import { useCreateTaskMutation } from "../services";
 
 type InitialValues = {
+  createdAt: Date;
   createdBy: string | undefined;
   description: string;
   title: string;
@@ -27,6 +28,7 @@ const CreateTask = () => {
 
   const formik = useFormik({
     initialValues: {
+      createdAt: new Date(),
       createdBy: auth?.fullName,
       description: "",
       title: "",
@@ -52,7 +54,7 @@ const CreateTask = () => {
     <section className="bg-gray-100 p-4 w-full h-full flex flex-row justify-center items-center col-start-1 col-end-3">
       <form
         className="bg-white rounded-lg p-8 sm:max-w-md m-auto"
-        onSubmit={formik.handleSubmit}
+        onSubmit={(e) => formik.handleSubmit(e)}
       >
         <h1 className="text-2xl font-bold mb-4">Create a task</h1>
         <p className="text-gray-900 sm:w-4/5 text-base">
