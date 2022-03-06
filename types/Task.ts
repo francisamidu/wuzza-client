@@ -4,7 +4,7 @@ type Task = {
   title: string;
   description: string;
   createdAt: number | any;
-  createdBy:string
+  createdBy: string;
   dueDate: number | any;
 };
 

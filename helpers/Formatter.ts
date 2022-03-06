@@ -11,6 +11,17 @@ class Formatter {
     const formattedDate = format(addWeeks(newDate, 2), "d MMM yyyy");
     return formattedDate;
   }
+  static formatTask(task: any) {
+    return {
+      id: task._id,
+      completed: task.completed,
+      createdAt: Formatter.formatDate(task.createdAt),
+      createdBy: task.createdBy,
+      dueDate: Formatter.formatDate(task.dueDate),
+      description: task.description,
+      title: task.title,
+    };
+  }
   static getDaysRemaining(firstDate: Date | number, secondDate: Date | number) {
     const _first = new Date(firstDate);
     const _second = new Date(secondDate);

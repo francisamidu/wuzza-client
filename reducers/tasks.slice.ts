@@ -1,38 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { formatRandomDate, generateId } from "../helpers";
+import { formatRandomDate, formatTask, generateId } from "../helpers";
 import { Task } from "../types";
 
 const name = "tasks";
 
-const initialState: Task[] = [
-  {
-    id: generateId(),
-    completed: false,
-    createdAt: Date.now(),
-    createdBy: "Francis Amidu",
-    dueDate: Date.now(),
-    description: "This is a description",
-    title: "This is the first task",
-  },
-  {
-    id: generateId(),
-    completed: false,
-    createdAt: Date.now(),
-    createdBy: "Francis Amidu",
-    dueDate: Date.now(),
-    description: "This is a second description",
-    title: "This is the second task",
-  },
-  {
-    id: generateId(),
-    completed: false,
-    createdAt: Date.now(),
-    createdBy: "Francis Amidu",
-    dueDate: Date.now(),
-    description: "This is a third description",
-    title: "This is the third task",
-  },
-];
+const initialState: Task[] = [];
 
 const reducers = {
   addTask: (state: typeof initialState, action: PayloadAction<Task>) => {
@@ -64,6 +36,13 @@ const reducers = {
       }),
     ];
   },
+  setTasks: (
+    state: typeof initialState,
+    action: PayloadAction<any | any[]>
+  ) => {
+    const tasks = action.payload?.map((t) => formatTask(t));
+    return tasks;
+  },
 };
 
 export const tasksSlice = createSlice({
@@ -71,5 +50,3 @@ export const tasksSlice = createSlice({
   initialState,
   reducers,
 });
-
-export const { addTask, removeTask, toggleCompletion } = tasksSlice.actions;

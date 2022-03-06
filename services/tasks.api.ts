@@ -6,7 +6,7 @@ export const tasksApi = createApi({
     baseUrl: "http://localhost:5000/api",
   }),
   endpoints: (builder) => ({
-    tasks: builder.query<Partial<Task>, any>({
+    tasks: builder.query<Partial<Task[]>, any>({
       query: () => ({
         headers: { "Content-Type": "application/json" },
         method: "GET",

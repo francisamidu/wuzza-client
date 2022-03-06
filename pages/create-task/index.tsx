@@ -1,13 +1,11 @@
-import React, { useState, FormEvent } from "react";
-import * as Yup from "yup";
-import { FormikHelpers, useFormik } from "formik";
-import { Task } from "../types";
+import React, { useState, useEffect } from "react";
 
-import { useAppSelector } from "../hooks";
-import { extractAuthData } from "../helpers";
-import { Button, DashboardLayout } from "../components";
+import { useAppSelector } from "../../hooks";
+import { extractAuthData } from "../../helpers";
 import { NextComponentType } from "next";
-import { useCreateTaskMutation } from "../services";
+import { useCreateTaskMutation } from "../../services";
+
+import { Button, DashboardLayout } from "../../components";
 
 type InitialValues = {
   createdAt: Date;
@@ -20,41 +18,37 @@ const CreateTask = () => {
   const [createTask, response] = useCreateTaskMutation({});
 
   const [task, setTask] = useState<any>({
-    createdAt: new Date(),
     createdBy: auth?.fullName,
     description: "",
     title: "",
   });
 
-  const formik = useFormik({
-    initialValues: {
-      createdAt: new Date(),
-      createdBy: auth?.fullName,
-      description: "",
-      title: "",
-    } as InitialValues,
-    onSubmit: (
-      values: InitialValues,
-      formikHelpers: FormikHelpers<InitialValues>
-    ) => {
-      const { setSubmitting } = formikHelpers;
-      setSubmitting(true);
-      console.log(values);
-      setSubmitting(false);
-    },
-    validationSchema: Yup.object({
-      createdAt: Yup.date().required("Date is required"),
-      createdBy: Yup.string(),
-      description: Yup.string().required("Description is required"),
-      title: Yup.string().required("Title is required"),
-    }),
-  });
+  const makeQuery = async (e) => {
+    e.preventDefault();
+    await createTask({
+      title: task.title,
+      description: task.description,
+      dueDate: new Date(21, 5, 5).toISOString(),
+      createdBy: "Myself",
+    });
+  };
+
+  useEffect(() => {
+    const { isSuccess } = response;
+    if (isSuccess) {
+      setTask({
+        createdBy: "",
+        description: "",
+        title: "",
+      });
+    }
+  }, [response]);
 
   return (
     <section className="bg-gray-100 p-4 w-full h-full flex flex-row justify-center items-center col-start-1 col-end-3">
       <form
         className="bg-white rounded-lg p-8 sm:max-w-md m-auto"
-        onSubmit={(e) => formik.handleSubmit(e)}
+        onSubmit={(e) => makeQuery(e)}
       >
         <h1 className="text-2xl font-bold mb-4">Create a task</h1>
         <p className="text-gray-900 sm:w-4/5 text-base">
@@ -69,9 +63,14 @@ const CreateTask = () => {
             <input
               type="text"
               id="title"
-              className="mt-2 rounded-sm w-full py-2 px-2 border-1 border-gray-200 placeholder:text-sm"
-              onChange={formik.handleChange}
-              value={formik.values.title}
+              className="mt-2 rounded-sm w-full py-2 px-2 border-1 border-gray-200 placeholder:text-sm outline-none"
+              onChange={(e) =>
+                setTask({
+                  ...task,
+                  title: e.target.value,
+                })
+              }
+              value={task.title}
               placeholder="Ex. New task"
             />
           </div>
@@ -79,14 +78,20 @@ const CreateTask = () => {
             <label htmlFor="description" className="font-bold text-capitalize">
               Description
             </label>
-            <input
-              type="text"
+            <textarea
               id="description"
-              className="mt-2 rounded-sm w-full py-2 px-2 border-1 border-gray-200 placeholder:text-sm"
-              value={formik.values.description}
-              onChange={formik.handleChange}
+              className="mt-2 rounded-sm w-full py-2 px-2 border-1 border-gray-200 placeholder:text-sm outline-none"
+              value={task.description}
+              onChange={(e) =>
+                setTask({
+                  ...task,
+                  description: e.target.value,
+                })
+              }
               placeholder="Ex. Description"
-            />
+              cols={3}
+              rows={8}
+            ></textarea>
           </div>
           <Button
             text="Continue"

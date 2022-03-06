@@ -2,19 +2,27 @@ import React, { useEffect, useState } from "react";
 import { NextComponentType } from "next";
 import router from "next/router";
 
-import { Button, DashboardLayout, Task, TaskTabs } from "../components";
+import { Button, DashboardLayout, Task, TaskTabs } from "../../components";
 import { IoAdd } from "react-icons/io5";
 
-import { useAppSelector } from "../hooks";
-import { Tab, Task as ITask } from "../types";
-import { generateId } from "../helpers";
+import { useAppDispatch, useAppSelector } from "../../hooks";
+import { Tab, Task as ITask } from "../../types";
+import { generateId } from "../../helpers";
+import { setTasks as setTasksAction } from "../../reducers";
+import { useTasksQuery } from "../../services";
 
 const Tasks = () => {
   const {
-    auth,
     tasks: { length },
     tasks,
   } = useAppSelector((state) => state);
+  const dispatch = useAppDispatch();
+  const { data } = useTasksQuery({});
+  useEffect(() => {
+    if (data) {
+      dispatch(setTasksAction(data));
+    }
+  }, [data]);
   const pendingCount = tasks.filter((task) => !task.completed).length;
   const completedCount = tasks.filter((task) => !!task.completed).length;
   const [tabs, setTabs] = useState<Tab[]>([
@@ -43,7 +51,7 @@ const Tasks = () => {
       name: "completed",
     },
   ]);
-  const [localTasks, setLocalTasks] = useState<ITask[]>([]);
+  const [localTasks, setLocalTasks] = useState<any | any[] | ITask[]>([]);
   const [currentTab, setCurrentTab] = useState("all");
 
   const setTasks = () => {
@@ -72,7 +80,7 @@ const Tasks = () => {
 
   useEffect(() => {
     setTasks();
-  }, [currentTab]);
+  }, [currentTab, data]);
 
   const redirectToCreateTaskPage = () => {
     router.push("/create-task");

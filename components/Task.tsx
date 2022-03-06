@@ -9,7 +9,7 @@ import {
 } from "react-icons/io5";
 import { formatDate } from "../helpers";
 import { useAppDispatch } from "../hooks";
-import { toggleCompletion, removeTask } from "../reducers/tasks.slice";
+import { toggleCompletion, removeTask } from "../reducers";
 
 type TaskProps = {
   task: ITask;
@@ -57,7 +57,7 @@ const Task = (props: TaskProps) => {
           {description}
         </p>
       </div>
-      <p className="flex flex-row items-center justify-between px-4">
+      <div className="flex flex-row items-center justify-between px-4">
         <span className="capitalize">{createdBy}</span>
         {completed ? (
           <p className="flex flex-row items-center justify-center">
@@ -70,7 +70,7 @@ const Task = (props: TaskProps) => {
             <span className="text-gray-500">Incomplete</span>
           </p>
         )}
-      </p>
+      </div>
     </div>
   );
 };

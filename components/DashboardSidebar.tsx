@@ -32,7 +32,7 @@ const DashboardSidebar = () => {
       active: false,
       id: generateId(),
       name: "Tasks",
-      path: "/tasks",
+      path: "/dashboard/tasks",
       icon: (
         <IoArchiveOutline className="text-1xl transition-colors duration-200" />
       ),
@@ -41,7 +41,7 @@ const DashboardSidebar = () => {
       active: false,
       id: generateId(),
       name: "Calendar",
-      path: "/calendar",
+      path: "/dashboard/calendar",
       icon: (
         <IoCalendarOutline className="text-1xl transition-colors duration-200" />
       ),
@@ -50,7 +50,7 @@ const DashboardSidebar = () => {
       active: false,
       id: generateId(),
       name: "Projects",
-      path: "/projects",
+      path: "/dashboard/projects",
       icon: (
         <IoFileTrayOutline className="text-1xl transition-colors duration-200" />
       ),
@@ -59,7 +59,7 @@ const DashboardSidebar = () => {
       active: false,
       id: generateId(),
       name: "Budget",
-      path: "/budget",
+      path: "/dashboard/budget",
       icon: (
         <IoWalletOutline className="text-1xl transition-colors duration-200" />
       ),
@@ -68,7 +68,7 @@ const DashboardSidebar = () => {
       active: false,
       id: generateId(),
       name: "Settings",
-      path: "/settings",
+      path: "/dashboard/settings",
       icon: (
         <IoSettingsOutline className="text-1xl transition-colors duration-200" />
       ),
