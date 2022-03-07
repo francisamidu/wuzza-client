@@ -3,7 +3,7 @@ import { Task } from "../types";
 
 export const tasksApi = createApi({
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://wuzza-client.herokuapp.com",
+    baseUrl: "https://wuzza-client.herokuapp.com",
   }),
   endpoints: (builder) => ({
     tasks: builder.query<Partial<Task[]>, any>({

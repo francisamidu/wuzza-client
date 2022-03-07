@@ -4,7 +4,7 @@ import { User } from "../types";
 export const authApi = createApi({
   reducerPath: "auth",
   baseQuery: fetchBaseQuery({
-    baseUrl: `http://localhost:5000/auth`,
+    baseUrl: `https://wuzza-server.herokuapp.com/auth`,
   }),
   endpoints: (builder) => ({
     login: builder.mutation<Partial<User>, any>({
