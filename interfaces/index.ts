@@ -1,3 +1,3 @@
 import Feature from "./Feature";
 
-export { Feature };
+export type { Feature };
