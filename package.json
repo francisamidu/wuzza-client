@@ -1,7 +1,8 @@
 {
-	"name": "Wuzza",
+	"name": "wuzza",
 	"main": "index.js",
 	"author": "Francis Amidu",
+	"description": "All in one productivity apps management tool",
 	"license": "ISC",
 	"dependencies": {
 		"@apollo/client": "*",
@@ -21,7 +22,9 @@
 		"react-icons": "*",
 		"react-redux": "*",
 		"react-scrollspy": "*",
+		"react-toastify": "^8.2.0",
 		"recharts": "^2.1.8",
+		"redux-devtools-extension": "^2.13.9",
 		"redux-persist": "*",
 		"ree-validate": "*",
 		"sass": "^1.45.1",

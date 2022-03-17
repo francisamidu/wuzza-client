@@ -8,6 +8,7 @@ import { persistor, store } from "../app/store";
 
 import "../styles/index.scss";
 import "../node_modules/tailwindcss/tailwind.css";
+
 import { AppContextProvider, ThemeContextProvider } from "../contexts";
 
 type NextPageWithLayout = NextPage & {

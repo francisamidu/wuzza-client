@@ -1,4 +1,5 @@
 import Button from "./Button";
+import ComingSoon from "./ComingSoon";
 import DashboardHeader from "./DashboardHeader";
 import DashboardLayout from "./DashboardLayout";
 import DashboardSidebar from "./DashboardSidebar";
@@ -24,6 +25,7 @@ import Try from "./Try";
 
 export {
   Button,
+  ComingSoon,
   DashboardHeader,
   DashboardLayout,
   DashboardSidebar,
